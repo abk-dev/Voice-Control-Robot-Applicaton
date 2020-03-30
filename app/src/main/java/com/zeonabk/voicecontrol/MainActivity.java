@@ -162,23 +162,8 @@ public class MainActivity extends AppCompatActivity {
                     byte[] readBuff= (byte[]) msg.obj;
                     String tempMsg=new String(readBuff,0,msg.arg1);
                     msg_box.setText(tempMsg);
-                    if((tempMsg.equals("Obstacle detected"))||(tempMsg.equals("obstacle detected"))||(tempMsg.equals("obstacledetected"))) {
-                        msg_box.setText(tempMsg);
-                        textToSpeech.speak(tempMsg, TextToSpeech.QUEUE_FLUSH, null);
-                    }
-                    else if((tempMsg.equals("Turning right"))||(tempMsg.equals("turning right"))||(tempMsg.equals("turningright"))) {
-                        msg_box.setText(tempMsg);
-                        textToSpeech.speak(tempMsg, TextToSpeech.QUEUE_FLUSH, null);
-                    }
-                    else if((tempMsg.equals("Turning left"))||(tempMsg.equals("turning left"))||(tempMsg.equals("turningleft"))) {
-                        msg_box.setText(tempMsg);
-                        textToSpeech.speak(tempMsg, TextToSpeech.QUEUE_FLUSH, null);
-                    }
-                    else if((tempMsg.equals("Target reached"))||(tempMsg.equals("target reached"))||(tempMsg.equals("targetreached"))) {
-                        msg_box.setText(tempMsg);
-                        textToSpeech.speak(tempMsg, TextToSpeech.QUEUE_FLUSH, null);
-                    }
                     textToSpeech.speak(tempMsg, TextToSpeech.QUEUE_FLUSH, null);
+
                     break;
             }
             return true;
@@ -221,80 +206,10 @@ public class MainActivity extends AppCompatActivity {
                 if (resultCode == RESULT_OK && data != null) {
                     ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     txvResult.setText(result.get(0));
-                    if (result.get(0).equals("class 1")) {
-                       textToSpeech.speak("going to class one", TextToSpeech.QUEUE_FLUSH, null);
-                        String string= String.valueOf(txvResult.getText());
-                        sendReceive.write(string.getBytes());
-                    }
-                    else if(result.get(0).equals("class 2"))
-                    {
-                        textToSpeech.speak("going to class two", TextToSpeech.QUEUE_FLUSH, null);
-                        String string= String.valueOf(txvResult.getText());
-                        sendReceive.write(string.getBytes());
-                    }
-                    else if(result.get(0).equals("class 3"))
-                    {
-                        textToSpeech.speak("going to class two", TextToSpeech.QUEUE_FLUSH, null);
-                        String string= String.valueOf(txvResult.getText());
-                        sendReceive.write(string.getBytes());
-                    }
-                    else if(result.get(0).equals("class 4"))
-                    {
-                        textToSpeech.speak("going to class two", TextToSpeech.QUEUE_FLUSH, null);
-                        String string= String.valueOf(txvResult.getText());
-                        sendReceive.write(string.getBytes());
-                    }
-                    else if(result.get(0).equals("class 5"))
-                    {
-                        textToSpeech.speak("going to class two", TextToSpeech.QUEUE_FLUSH, null);
-                        String string= String.valueOf(txvResult.getText());
-                        sendReceive.write(string.getBytes());
-                    }
-                    else if(result.get(0).equals("class 6"))
-                    {
-                        textToSpeech.speak("going to class two", TextToSpeech.QUEUE_FLUSH, null);
-                        String string= String.valueOf(txvResult.getText());
-                        sendReceive.write(string.getBytes());
-                    }
-                    else if(result.get(0).equals("class 7"))
-                    {
-                        textToSpeech.speak("going to class two", TextToSpeech.QUEUE_FLUSH, null);
-                        String string= String.valueOf(txvResult.getText());
-                        sendReceive.write(string.getBytes());
-                    }
-                    else if(result.get(0).equals("class 8"))
-                    {
-                        textToSpeech.speak("going to class two", TextToSpeech.QUEUE_FLUSH, null);
-                        String string= String.valueOf(txvResult.getText());
-                        sendReceive.write(string.getBytes());
-                    }
-                    else if(result.get(0).equals("class 9"))
-                    {
-                        textToSpeech.speak("going to class two", TextToSpeech.QUEUE_FLUSH, null);
-                        String string= String.valueOf(txvResult.getText());
-                        sendReceive.write(string.getBytes());
-                    }
-                    else if(result.get(0).equals("class 10"))
-                    {
-                        textToSpeech.speak("going to class two", TextToSpeech.QUEUE_FLUSH, null);
-                        String string= String.valueOf(txvResult.getText());
-                        sendReceive.write(string.getBytes());
-                    }
-                    else if((result.get(0).equals("stop"))||(result.get(0).equals("Stop")))
-                    {
-                         textToSpeech.speak("robot is stop", TextToSpeech.QUEUE_FLUSH, null);
                         String string= String.valueOf(txvResult.getText());
                         sendReceive.write(string.getBytes());
                     }
 
-                    else
-                    {
-                        txvResult.setText(result.get(0));
-                        Toast.makeText(MainActivity.this,"Please Try Again", Toast.LENGTH_SHORT).show();
-                         textToSpeech.speak("please try again", TextToSpeech.QUEUE_FLUSH, null);
-
-                    }
-                }
                 break;
         }
     }
